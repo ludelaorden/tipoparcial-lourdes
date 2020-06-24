@@ -1,4 +1,17 @@
-<h3 class="titulo">Listado de {{titulo}} - <small>{{TituloAccionABMC[AccionABMC]}}</small></h3>
+
+<h3 class="titulo">Listado de {{titulo}} - <small>{{TituloAccionABMC[AccionABMC]}}</small></h3><br>
+
+
+<!-- Formulario Filtro de busqueda, se ve cuando la accion es Listado-->
+<form name="FormFiltro" [formGroup]='FormFiltro' class="bg-light" *ngIf="AccionABMC == 'L'" > 
+  <!-- Botones Consultar y Agregar-->
+  <div class="row justify-content-center botones">
+    <button class="btn btn-primary" (click)="Buscar();"><span class="fas fa-search"> </span> Consultar </button>
+    &nbsp;
+    <button class="btn btn-primary" (click)="Agregar()"><span class="fas fa-plus"></span> Agregar</button>
+  </div>
+</form><br>
+
 
 <!-- Lista de empresas -->
   <table class="table table-striped">
@@ -28,16 +41,11 @@
     </tbody>
   </table>
 
+  <!-- Formulario para alta, modificacion o consulta -->
+  
 
-<!-- Formulario Filtro de busqueda, se ve cuando la accion es Listado-->
-<form name="FormFiltro" [formGroup]='FormFiltro' class="bg-light" *ngIf="AccionABMC == 'L'" > 
-  <!-- Botones Consultar y Agregar-->
-  <div class="row justify-content-center botones">
-    <button class="btn btn-primary" (click)="Buscar();"><span class="fas fa-search"> </span> Consultar </button>
-    &nbsp;
-    <button class="btn btn-primary" (click)="Agregar()"><span class="fas fa-plus"></span> Agregar</button>
-  </div>
-</form>
+
+
 
 
 

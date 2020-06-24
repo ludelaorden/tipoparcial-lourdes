@@ -22,19 +22,36 @@ export class EmpresasComponent implements OnInit {
     C: "(Consultar)",
     L: "(Listado)"
   };
-  AccionABMC = "L";
+  AccionABMC = "L"; /* inicialmente en el listado de articulos */
+
+  Mensajes = {
+  SD: " No se encontraron registros...",
+  RD: " Revisar los datos ingresados..."
+  };
+
+  FormFiltro: FormGroup;
+  FormReg: FormGroup;
+  submitted = false;
+
 
   constructor(
-    private empresasService: EmpresasService /* servicio Empresas al que voy a consultar */
+    private empresasService: EmpresasService, /* servicio Empresas al que voy a consultar */
+    public formBuilder: FormBuilder,
+    private modalDialogService: ModalDialogService
   ) { }
 
   ngOnInit() {
     this.getEmpresas();
   }
 
-   getEmpresas(){
+  getEmpresas(){
       this.empresasService.get().subscribe((res:Empresas[]) => {
       this.Lista = res;
     })
   }
+
+  Agregar() {
+ this.AccionABMC = "A";
+ }
+
 }
