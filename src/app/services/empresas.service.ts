@@ -18,7 +18,7 @@ export class EmpresasService {
   url: string;
 
   constructor(private httpClient: HttpClient) {
-    this.url = "https://pavii.ddns.net/api/empresas/"
+    this.url = " https://pavii.ddns.net/api/empresas"
   }
   
   get(){

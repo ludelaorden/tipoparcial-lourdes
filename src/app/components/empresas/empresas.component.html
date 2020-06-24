@@ -1,0 +1,45 @@
+<h3 class="titulo">Listado de {{titulo}} - <small>{{TituloAccionABMC[AccionABMC]}}</small></h3>
+
+<!-- Lista de empresas -->
+  <table class="table table-striped">
+    <thead class="text-center">
+      <tr>
+        <th>Id empresa</th>
+        <th>Razón social</th>
+        <th>Cantidad empleados</th>
+        <th>Fecha fundación</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody class="text-center">
+      <tr *ngFor="let dto of Lista">
+        <td>{{dto.IdEmpresa}}</td>
+        <td>{{dto.RazonSocial}}</td>
+        <td>{{dto.CantidadEmpleados}}</td>
+        <td>{{dto.FechaFundacion | date:'dd/MM/yyyy'}}</td>
+        <td class="text-center text-nowrap">
+          <button type="button" class="btn btn-sm btn-outline-info" title="Ver" (click)="Consultar(dto)">
+            <span class="fas fa-eye"></span> </button>
+          <button type="button" class="btn btn-sm btn-outline-info" title="Modificar" (click)="Modificar(dto)"> <span class="fas fa-pencil-alt"></span></button>
+          <button type="button" class="btn btn-sm btn-outline-danger" title="Eliminar" (click)="Eliminar(dto)">
+            <span class="fas fa-trash-alt"></span> </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+
+<!-- Formulario Filtro de busqueda, se ve cuando la accion es Listado-->
+<form name="FormFiltro" [formGroup]='FormFiltro' class="bg-light" *ngIf="AccionABMC == 'L'" > 
+  <!-- Botones Consultar y Agregar-->
+  <div class="row justify-content-center botones">
+    <button class="btn btn-primary" (click)="Buscar();"><span class="fas fa-search"> </span> Consultar </button>
+    &nbsp;
+    <button class="btn btn-primary" (click)="Agregar()"><span class="fas fa-plus"></span> Agregar</button>
+  </div>
+</form>
+
+
+
+
+
